@@ -1,7 +1,7 @@
 // 简单离线缓存：优先使用缓存，后台更新
-var CACHE = "tourguide-v3";
+var CACHE = "tourguide-v4";
 var CORE = [
-  "./", "./index.html", "./css/style.css?v=2", "./js/app.js", "./manifest.json",
+  "./", "./index.html", "./css/style.css?v=3", "./js/app.js", "./manifest.json",
   "./data/questions.json", "./data/guide.json", "./data/interview_qa.json"
 ];
 

@@ -256,3 +256,4 @@ button{font-family:inherit;}
 .link-row .v{color:var(--text-3);font-size:13px;}
 
 ::-webkit-scrollbar{display:none;}
+.ai-tag{display:inline-block;margin-left:6px;padding:0 6px;font-size:11px;line-height:18px;border-radius:9px;background:var(--brand-light);color:var(--brand-dark);vertical-align:1px;}

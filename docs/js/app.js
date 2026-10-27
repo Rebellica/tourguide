@@ -419,6 +419,10 @@
     return isOptionCorrect(q, selected);
   }
 
+  function aiTag(q) {
+    return q.aiExplain ? '<span class="ai-tag">AI解析·仅供参考</span>' : "";
+  }
+
   function renderExplain(q) {
     var el = qs("#q-explain");
     var correct = computeCorrect(q, quizState.selected);
@@ -430,7 +434,7 @@
     }
     html += '<div class="explain-box"><b>正确答案：</b>' + esc(q.answer || "") + "</div>";
     if (q.explanation) {
-      html += '<div class="explain-box" style="margin-top:8px;"><b>解析：</b>' + esc(q.explanation) + "</div>";
+      html += '<div class="explain-box" style="margin-top:8px;"><b>解析：</b>' + esc(q.explanation) + aiTag(q) + "</div>";
     }
     el.innerHTML = html;
   }
@@ -749,7 +753,7 @@
           '<div class="q-meta"><span class="q-type-badge">' + esc(q.type) + '</span><span style="color:' + (ok ? "var(--good)" : "var(--bad)") + ';font-weight:600;">' + (ok ? "✓ 正确" : "✕ 错误") + '</span></div>' +
           '<div style="font-size:14.5px;line-height:1.6;margin:6px 0;">' + (i + 1) + '. ' + esc(q.question) + '</div>' +
           (q.options && q.options.length ? '<div style="font-size:13px;color:var(--text-2);margin-bottom:4px;">' + q.options.map(esc).join("<br>") + '</div>' : '') +
-          '<div class="explain-box"><b>你的答案：</b>' + esc(selText) + '　<b>正确答案：</b>' + esc(q.answer) + (q.explanation ? '<br><b>解析：</b>' + esc(q.explanation) : '') + '</div>' +
+          '<div class="explain-box"><b>你的答案：</b>' + esc(selText) + '　<b>正确答案：</b>' + esc(q.answer) + (q.explanation ? '<br><b>解析：</b>' + esc(q.explanation) + aiTag(q) : '') + '</div>' +
         "</div>";
       }).join("");
       qs("#btn-review").style.display = "none";
